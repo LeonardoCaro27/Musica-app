@@ -6,29 +6,31 @@
 
 <ion-content>
 
-  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value">
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+
     <ion-item>
-    <ion-label position="floating">Email</ion-label>
-    <ion-input formControlName="email"></ion-input>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
     </ion-item>
 
-<div>
-<ng-container *ngFor="let validation of validation_messages.email">
-<div
-*ngIf="loginForm.get('email').hasError(validation.type) 
-&& loginForm.get('email').dirty 
-|| loginForm.get('email').touched)"
->
-  {{validation.messages}}
-</div>
-</ng-container>
-
-</div>
+    <div>
+      <ng-container *ngFor="let validation of validation_messages.email">
+       <div 
+        *ngIf="
+          loginForm.get('email').hasError(validation.type) && 
+          (loginForm.get('email').dirty || 
+          loginForm.get('email').touched)
+        ">
+        {{validation.message}}
+       </div>
+      </ng-container>
+    </div>
 
     <ion-item>
-      <ion-label position="floating">Contrasena</ion-label>
+      <ion-label position="floating">Contraseña</ion-label>
       <ion-input formControlName="password"></ion-input>
-      </ion-item>
+    </ion-item>
+
   </form>
-  
+
 </ion-content>
