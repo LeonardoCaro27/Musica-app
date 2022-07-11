@@ -18,33 +18,33 @@ export class IntroPage implements OnInit{
 
   slides = [
     {
-      title:"Titulo 1",
-      subtitle: "Sub titulo 1",
-      icon:"musical-note-outline",
-      img:"assets/images/slide1.jpg",
-      description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      title:"Bienvenido a",
+      subtitle: "ByMusic App",
+      img:"assets/images/Slide1.PNG",
+      description:"La mejor aplicacion para reproducir y buscar tus canciones favoritas.",
+      icon:"apps-outline"
     },
 
     {
-      title:"Titulo 2",
-      subtitle: "Sub titulo 2",
-      icon:"play-circle-outline",
-      img:"assets/images/slide2.png",
-      description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      title:"Introducción",
+      subtitle: "¿Que es ByMusic?",
+      img:"assets/images/slide2.PNG",
+      description:"ByMusic es una App que nos permite reproducir contenido musicales tanto archivos almacenados en el dispositivo como desde un flujo de datos que llega a través de Internet."
+    , icon:"play-circle-outline"  
     },
     {
-      title:"Titulo 3",
-      subtitle: "Sub titulo 3",
-      icon:"musical-notes-outline",
-      img:"assets/images/slide3.jpeg",
-      description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      title:"Siguiente paso",
+      subtitle: "Registro",
+      img:"assets/images/slide3.PNG",
+      description:"Se invita a realizar el registro a ByMusic App, presionando el boton de registro que aparece en la pantalla principal de la App."
+    , icon:"newspaper-outline"
     },
     {
-      title:"Titulo 4",
-      subtitle: "Sub titulo 4",
-      icon:"radio-outline",
-      img:"assets/images/slide4.jpg",
-      description:"Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      title:"Por último",
+      subtitle: "A escuchar música",
+      img:"assets/images/slide4.PNG",
+      description:"Una vez terminado el registro podra comenzar a utilizar la App ByMusic."
+    , icon:"musical-notes-outline"
     }
   ]
   constructor(private router: Router, private storage: Storage) {

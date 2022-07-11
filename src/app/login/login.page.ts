@@ -13,9 +13,9 @@ export class LoginPage implements OnInit {
     email: [
       { type: "require", message: "El email es obligatorio" },
       { type: "pattern", message: "El email no es valido" }
-    ]
+    ] 
   };
-
+  
   constructor(private formBuilder: FormBuilder) { 
 
     this.loginForm = this.formBuilder.group({
