@@ -13,7 +13,7 @@ ion-button{
     .swiper-slide {
       display: block;
       margin-bottom: 60px;
-      background-color: var(--slide-color-background);
+      background-color: var(--slide-color-background);// Variable personalizada
     }
     
     ion-slide > h1, h2{
@@ -33,13 +33,13 @@ ion-button{
       border-style: dashed;
     }
     ion-slide > ion-icon{
-      color:var(--ion-color-danger-contrast);
+      color:var(--ion-color-danger-contrast); //Variable usada de variables.scss
       font-size: 40px;
     }
     
     ion-slide > ion-icon[name="close-circle-outline"]{
     float: right;
-    color:var(--ion-color-primary-contrast);
+    color:var(--ion-color-primary-contrast); //Variable usada de variables.scss
     font-size: 45px;
     
     }
