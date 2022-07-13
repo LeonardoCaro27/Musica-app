@@ -1,45 +1,45 @@
 ion-button{
-    --background:rgb(253, 249, 249);
-    --green:rgba(209, 9, 245, 0.777);
-    
-    }
-    
-    ion-slides{
-      height: 100%;
-      background-color: white;
-      max-width: 800px;
-    }
-    
-    .swiper-slide {
-      display: block;
-      margin-bottom: 60px;
-      background-color: var(--slide-color-background);
-    }
-    
-    ion-slide > h1, h2{
-    font-style: italic; 
-    margin: 25px 25px 25px 25px;
-    color: rgb(240, 244, 246);
-    border-color: rgb(228, 24, 24);
+  --background:rgb(253, 249, 249);
+  --green:rgba(209, 9, 245, 0.777);
+  
+  }
+  
+  ion-slides{
+    height: 100%;
+    background-color: white;
+    max-width: 800px;
+  }
+  
+  .swiper-slide {
+    display: block;
+    margin-bottom: 60px;
+    background-color: var(--slide-color-background);
+  }
+  
+  ion-slide > h1, h2{
+  font-style: italic; 
+  margin: 25px 25px 25px 25px;
+  color: rgb(240, 244, 246);
+  border-color: rgb(228, 24, 24);
+  border-style: dashed;
+  }
+  
+  ion-slide >p{
+    font-style: italic;
+    font-size: 17px;
+    padding:22px 22px 22px 22px;
+    color:white;
+    border-color: rgb(247, 6, 6);
     border-style: dashed;
-    }
-    
-    ion-slide >p{
-      font-style: italic;
-      font-size: 17px;
-      padding:22px 22px 22px 22px;
-      color:white;
-      border-color: rgb(247, 6, 6);
-      border-style: dashed;
-    }
-    ion-slide > ion-icon{
-      color:var(--ion-color-danger-contrast);
-      font-size: 40px;
-    }
-    
-    ion-slide > ion-icon[name="close-circle-outline"]{
-    float: right;
-    color:var(--ion-color-primary-contrast);
-    font-size: 45px;
-    
-    }
+  }
+  ion-slide > ion-icon{
+    color:var(--ion-color-danger-contrast);
+    font-size: 40px;
+  }
+  
+  ion-slide > ion-icon[name="close-circle-outline"]{
+  float: right;
+  color:var(--ion-color-primary-contrast);
+  font-size: 45px;
+  
+  }
