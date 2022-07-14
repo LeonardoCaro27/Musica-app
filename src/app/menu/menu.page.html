@@ -1,4 +1,4 @@
-<ion-split-pane>
+<ion-split-pane contendId="content">
   <ion-menu contentId="content" side="end">
     <ion-header>
       <ion-toolbar>
@@ -16,12 +16,21 @@
 
       <ion-list>
 
-        <ion-item (click)="logout">cerrar sesion</ion-item>
         <ion-item>funcion1</ion-item>
         <ion-item>funcion1</ion-item>
         <ion-item>funcion1</ion-item>
 
       </ion-list>
+      <ion-footer> 
+        
+      <ion-item (click)="logout">
+      
+      <ion-icon name="log-out-outline"> </ion-icon> 
+        cerrar sesion 
+
+      </ion-item>
+
+      </ion-footer>
       </ion-content>
   </ion-menu>
   <ion-router-outlet id="content" main></ion-router-outlet>

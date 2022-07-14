@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MusicService } from '../services/music.service';
 
 @Component({
   selector: 'app-home',
@@ -7,26 +8,24 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  slideOpt={
-    initialSlide: 0, //slide inicial
-    slidesPerView: 1, //slide por vista
-    centeredSlides: true, //que las slides esten centradas
-    speed: 400 // velocidad de transicion de cada slide en milisegundo
+  artists: any;
+  artistsFromJson: any;
+
+  slideOps = {
+    initialSlide: 1,
+    slidesPerView: 3,
+    centeredSlides: true,
+    speed: 400
   }
 
-  slides = [
-    {
-      title:"ByMusic App",
-      img:"assets/images/slide5.PNG",
-    },
-  ]
+  constructor(private musicService: MusicService) { }
 
-
-  constructor() {}
-
-  ngOnInit(): void {{
-     
-    }
+  ionViewDidEnter() {
+    this.musicService.getArtists().then(listArtists => {
+      this.artists = listArtists;
+    });
+    this.artistsFromJson = this.musicService.getArtistsFromJson();
+    console.log(this.artistsFromJson.artists);
   }
-  
-  }
+
+}
