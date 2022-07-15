@@ -54,14 +54,14 @@ export class RegisterPage implements OnInit {
         "",
         Validators.compose([
           Validators.required,
-          Validators.minLength(6)
+          Validators.minLength(2)
         ])
       ),
       apellido: new FormControl(
         "",
         Validators.compose([
           Validators.required,
-          Validators.minLength(6)
+          Validators.minLength(2)
         ])
       ),
 
