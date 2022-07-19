@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomePageModule } from '../home/home.module';
 
 import { MenuPage } from './menu.page';
 
@@ -8,22 +7,27 @@ const routes: Routes = [
   {
     path: '',
     component: MenuPage,
-    children:[
+    children: [
       {
-        path:"home",
-        loadChildren:() =>
-        import("../home/home.module").then(m => m.HomePageModule)
-
-
+        path: "home",
+        loadChildren: () =>
+          import("../home/home.module").then(m => m.HomePageModule)
+      },
+      
+      {
+        path: "",
+        redirectTo: "home",
+        pathMatch: "full"
       },
       {
-
-        path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+        path: 'settings',
+        loadChildren: () => import('../settings/settings.module').then( m => m.SettingsPageModule)
       },
-
-
+      {
+        path: 'maps',
+        loadChildren: () => import('../maps/maps.module').then( m => m.MapsPageModule)
+      }
+    
     ]
   }
 ];
