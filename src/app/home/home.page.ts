@@ -12,47 +12,68 @@ export class HomePage {
 
   artists: any;
   artistsFromJson: any;
-  albums: any ;
+  albums: any;
   currentSong: HTMLAudioElement;
   newTime;
 
-  slideOps = {
+  slideOps ={
     initialSlide: 1,
     slidesPerView: 3,
-    centeredSlides: true,
-    speed: 400
+    centeredSlide: true,
+    speed:400
   }
 
+  slideOps1 ={
+    initialSlide: 1,
+    slidesPerView: 3,
+    centeredSlide: true,
+    speed:400
+  }
   song = {
     playing: false,
     name: '',
     preview_url: ''
   }
 
-  constructor(private musicService: MusicService, private modalController: ModalController) {}
-
-  ionViewDidEnter() {
-    //Lista de artistas desde api 
-    this.musicService.getArtists().then(listArtists => {
+  constructor(private musicService: MusicService,  private modalController: ModalController) {}
+  
+  ionViewDidEnter(){
+    this.musicService.getArtist().then(listArtists =>{
       this.artists = listArtists;
+      //lista de artistas desde apijson
     });
-    // lista de artistas desde apijson 
     this.artistsFromJson = this.musicService.getArtistsFromJson();
-    //console.log(this.artistsFromJson.artists);
+    console.log(this.artistsFromJson.artists);
 
     //albums desde api
     this.musicService.getAlbums().then(listAlbums => {
       this.albums = listAlbums;
+
     })
   }
 
-  async showSongs(artist) {
+  async showSongs(artist){
     const songs = await this.musicService.getArtistTracks(artist.id);
     const modal = await this.modalController.create({
       component: SongsModalPage,
       componentProps: {
-        songs: songs,
+        songs: songs, 
         artist: artist.name
+      }
+    });
+    modal.onDidDismiss().then( dataReturned => {
+      this.song = dataReturned.data
+    })
+    return await modal.present();
+  }
+
+  async showSongsAlbum (album) {
+    const songs = await this.musicService.getAlbumsTracks(album.id);
+    const modal = await this.modalController.create({
+      component: SongsModalPage,
+      componentProps: {
+        songs: songs,
+        album: album.name
       }
     });
     modal.onDidDismiss().then( dataReturned => {
@@ -90,5 +111,4 @@ export class HomePage {
       return minutes + ":" + seconds
     }
   }
-
 }
