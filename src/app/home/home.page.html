@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    <h2><strong>ByMusic App</strong></h2>
     <ion-buttons slot="end">
       <ion-menu-button>
       </ion-menu-button>
@@ -8,7 +9,8 @@
 </ion-header>
 
 <ion-content>
-  <h1>Artistas</h1>
+  <img src='assets/images/slide5.PNG'/>
+  <h1><strong>Artistas</strong></h1>
   <ion-slides [options]="slideOps">
     
     <ion-slide *ngFor="let artist of artists">
@@ -19,7 +21,7 @@
     </ion-slide>
   </ion-slides>
 
-  <h1>Albums</h1>
+  <h1><strong>Albums</strong></h1>
   <ion-slides [options]="slideOps">
 
     <ion-slide *ngFor="let album of albums">

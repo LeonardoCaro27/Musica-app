@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>maps</ion-title>
+    <ion-title>Mapa</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,4 +9,7 @@
 
 <ion-content>
   <capacitor-google-maps #map></capacitor-google-maps>
+  <ion-button expand="full"
+  shape="round"
+  color="success"(click)="showCoordsHistory()">Historial de ubicación</ion-button>
 </ion-content>

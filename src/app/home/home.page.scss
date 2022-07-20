@@ -1,17 +1,32 @@
 ion-avatar {
   height: 150px;
   width: 90%;
+
 }
 
 ion-avatar span {
-  font-size: 15px;
+  font-size: 15px; 
 }
 
 ion-avatar img {
   width: 90px;
   height: 90px;
+  
 }
 
 .square-avatar {
   --border-radius: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  text-align: center;
+  background-color:  #9309f6c0;
+  color: var(--ion-color-light);
+  padding-bottom: 1px;
+}
+
+h2{
+  margin-bottom: 0;
+  text-align: center;
 }
