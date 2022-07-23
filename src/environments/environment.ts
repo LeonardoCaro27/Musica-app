@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  googleApiKey: "my key"
+  googleApiKey: "Mykey"
 };
 
 /*
