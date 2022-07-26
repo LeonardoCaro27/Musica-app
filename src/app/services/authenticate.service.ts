@@ -78,28 +78,5 @@ export class AuthenticateService {
       });
     
   }
-  getCurrentUser(id) {
-    return this.http.get(`${this.url_server}current_user/${id}`, this.httpOptions)
-  }
-
-  updateUser(id, user) {
-    let params = {
-      "user": user
-    }
-    return new Promise ((accept, reject) => {
-    this.http.post(`${this.url_server}update/${id}`, params, this.httpOptions)
-    .subscribe((data: any) =>{
-      if (data.status = "OK"){
-        accept(data)
-      }else{
-        reject(data.errors)
-      }
-    }, 
-    (error) => {
-      reject(error)
-    }
-    )
-  })
-  }
 
 }
