@@ -13,8 +13,9 @@ import { UserService } from '../services/user.service';
 })
 export class SettingsPage implements OnInit {
 
-  userImage ="assets/images/profile.png"
+  userImage="assets/images/profile.png";
   photo: SafeResourceUrl;
+
   user = {
     email: "",
     name: "",
@@ -22,13 +23,14 @@ export class SettingsPage implements OnInit {
     following_users: [],
     followed_users: [],
     image: ""
-};
+  };
+
   user_id;
   goBack = false;
   users: any;
   searching = false;
   text = "Digite nombre de usuario para buscar"
-
+  
   constructor(
     private sanitizer: DomSanitizer,
     private authService: AuthenticateService,
@@ -40,23 +42,23 @@ export class SettingsPage implements OnInit {
       this.storage.create();
      }
 
-  async ngOnInit() {
-    this.user_id = await this.storage.get("user_id")
-    await this.userService.getCurrentUser(this.user_id).subscribe((data: any) => {
-      this.user.email = data.email
-      this.user.name = data.name
-      this.user.last_name = data.last_name
-      this.user.followed_users = data.followed_users
-      this.user.following_users = data.following_users
-      this.user.image = data.image
-    },
-    (error) => 
-      this.presentAlert("Opps", "hubo un error", error)
-    )
-    if (this.goBack){
-      this.navCtrl.navigateBack("/menu")
+     async ngOnInit() {
+      this.user_id = await this.storage.get("user_id")
+      await this.userService.getCurrentUser(this.user_id).subscribe((data: any) => {
+        this.user.email = data.email
+        this.user.name = data.name
+        this.user.last_name = data.last_name
+        this.user.followed_users = data.followed_users
+        this.user.following_users = data.following_users
+        this.user.image = data.image
+      },
+      (error) => 
+        this.presentAlert("Opps", "hubo un error", error)
+      )
+      if (this.goBack){
+        this.navCtrl.navigateBack("/menu")
+      }
     }
-  }
 
   async presentAlert(header, subHeader,message) {
     const alert = await this.alertController.create({
@@ -82,7 +84,7 @@ export class SettingsPage implements OnInit {
     this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
       image && image.dataUrl
     );
-    console.log(image);
+    // console.log(image);
     this.updateUser({"image": image.dataUrl})
   }
 
@@ -138,5 +140,18 @@ export class SettingsPage implements OnInit {
     } ) 
   }
 
+  unfollowUser(followee_id){
+
+    this.userService.unfollowUser(followee_id, this.user_id).subscribe( async (resp: any) => {
+       this.presentAlert("UnFollow","",resp.msg)
+       this.users.forEach( user  => {
+         if (followee_id == user.id){
+           user["follow"] = false
+           let newFolleew = parseInt(document.getElementById("followee").textContent) - 1
+           document.getElementById("followee").textContent = newFolleew.toString();
+         }
+       })
+     } ) 
+   }
 
 }

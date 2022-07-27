@@ -13,6 +13,7 @@ export class SongsModalPage implements OnInit {
   songs: any;
   album: string;
 
+
   constructor(private navParams: NavParams, private modalController: ModalController) { }
 
   ngOnInit() {
@@ -22,6 +23,7 @@ export class SongsModalPage implements OnInit {
     this.artist = this.navParams.data.artist;
     this.songs = this.navParams.data.songs;
     this.album = this.navParams.data.album;
+    
   }
 
   closeModal(){

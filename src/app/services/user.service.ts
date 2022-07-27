@@ -42,7 +42,7 @@ export class UserService {
     let params = {
         "q": keyword
       }
-    
+
     return this.http.post(`${this.url_server}find_user`, params, this.httpOptions)
   }
 
@@ -51,6 +51,14 @@ export class UserService {
       "followee_id": followee_id
     }
     return this.http.post(`${this.url_server}follow/${user_id}`, params, this.httpOptions)
+  }
+
+
+  unfollowUser(followee_id, user_id) {
+    let params = {
+      "followee_id": followee_id
+    }
+    return this.http.post(`${this.url_server}unfollow/${user_id}`, params, this.httpOptions)
   }
 
 }
