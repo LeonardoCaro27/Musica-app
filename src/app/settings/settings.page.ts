@@ -125,6 +125,38 @@ export class SettingsPage implements OnInit {
       this.users = [];
     }
   }
+//Actualizador de nombre y apellido
+  async MostrarUpdate() {
+    const alert = await this.alertController.create({
+      header: 'Actualizar datos',
+      buttons: [
+        {
+          text:'Actualizar',
+          role: 'confirm',
+          handler: (user) => {
+            console.log(user);
+            this.updateUser(user)
+          } 
+        }
+        
+      ],
+      inputs: [
+        {
+          name: 'name',
+          placeholder: 'Nombres',
+        },
+        {
+          name: 'last_name',
+          placeholder: 'Apellidos',
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+  OpenUpdate() {
+    this.MostrarUpdate();
+  }
 
   followUser(followee_id){
 
@@ -140,6 +172,7 @@ export class SettingsPage implements OnInit {
     } ) 
   }
 
+//eleminar seguido
   unfollowUser(followee_id){
 
     this.userService.unfollowUser(followee_id, this.user_id).subscribe( async (resp: any) => {
